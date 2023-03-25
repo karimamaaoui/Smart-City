@@ -1,0 +1,240 @@
+<!Doctype html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart City</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!--Header-->
+<header>
+  <div id="menu-bar" class="fas fa-bars"></div>
+  <a href="" class="logo"><span>S</span>mart City</a>
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#home">Gallery</a>
+    <a href="#home">Services</a>
+    <a href="#home">Contact</a>
+  </nav>
+  <div class="icons">
+    <i class="fas fa-search" id="search-btn"></i>
+    <i class="fas fa-user" id="login-btn"></i>
+  </div>
+
+  <form action="" class="search-bar-container">
+    <input type="search" id="search-bar" placeholder="search here ..." />
+    <label for="search-bar" class="fas fa-search"></label>
+  </form>
+</header>
+
+
+<!--End Header-->
+
+<div class="login-form-container">
+  <i class="fas fa-close" id="form-close"></i>
+
+  <form action="loginProcess.php" method="post">
+    <h3>Login</h3>
+    <input type="email" name="email" class="box" placeholder="enter your email" />
+    <input type="password" name="password" class="box" placeholder="enter your password" />
+    <input type="submit" value="login now" class="btn" name="login" />
+    <input type="checkbox" id="remember" />
+    <label for="remember">remember me</label>
+    <p>forget password ?<a href="">click here</a></p>
+    <p>Don't have an account ?<a href="">register now</a></p>
+  </form>
+</div>
+
+<section class="home" id="home">
+  <div class="content">
+    <h3>Adventure is wothwhile</h3>
+    <p>discover new places with us, adventure awaits</p>
+    <a href="#" class="btn">discover more</a>
+  </div>
+  <div class="controls">
+    <span class="img-btn active" data-src="img/Monastir-Tunisia.jpg"></span>
+    <span class="img-btn" data-src="img/tabarka.jpg"></span>
+    <span class="img-btn" data-src="img/bizerte.jpg"></span>
+    <span
+      class="img-btn"
+      data-src="img/theatre_municipal_de_tunis.jpg"
+    ></span>
+  </div>
+  <div class="img-container">
+    <img src="img/Monastir-Tunisia.jpg" id="image-slider" />
+  </div>
+</section>
+
+<section class="packages" id="packages" >
+  <h1 class="heading">
+    <span>p</span>
+    <span>a</span>
+    <span>c</span>
+    <span>k</span>
+    <span>a</span>
+    <span>g</span>
+    <span>e</span>
+    <span>s</span>
+  </h1>
+  <div class="row">
+    <div class="images">
+        <img src="img/bizerte.jpg" height="100px">
+        <div class="content">
+
+        </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+      <div class="features-content">
+          <div class="section-header">
+              <h3 class="section-head-title">Featured destinations</h3>
+              <a href="#" class="view-all">View all <span>></span></a>
+          </div>
+          <div class="features-cards">
+              <div class="feature-card">
+                  <img src="img/raja-ampat.jpg" alt="" class="feature-img">
+                  <div class="feature-card-desc">
+                      <span class="location">Raja Ampat</span>
+                      <span class="country">Indonesia</span>
+                  </div>
+              </div>
+              <div class="feature-card">
+                  <img src="img/fanjingshan.jpg" alt="" class="feature-img">
+                  <div class="feature-card-desc">
+                      <span class="location">Fanjingshan</span>
+                      <span class="country">China</span>
+                  </div>
+              </div>
+              <div class="feature-card">
+                  <img src="img/vevey.jpg" alt="" class="feature-img">
+                  <div class="feature-card-desc">
+                      <span class="location">Vevey</span>
+                      <span class="country">Switzerland</span>
+                  </div>
+              </div>
+              <div class="feature-card">
+                  <img src="img/skadar.jpg" alt="" class="feature-img">
+                  <div class="feature-card-desc">
+                      <span class="location">Skadar</span>
+                      <span class="country">Montenegro</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-text">
+                <img src="assets/img/logo.svg" alt="" class="footer-icon">
+                <p class="footer-desc">
+                    Plan and book your perfect trip with
+                    expert advice, travel tips destination
+                    information from us
+                </p>
+                <p class="copyright">©2020 Thousand Sunny. All rights reserved</p>
+            </div>
+            <div class="nav-footer">
+                <div class="nav-footer-col">
+                    <h4 class="nav-footer-title">Destinations</h4>
+                    <ul class="nav-footer-links">
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Africa</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Antarctica</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Asia</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Europe</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">America</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-footer-col">
+                    <h4 class="nav-footer-title">Shop</h4>
+                    <ul class="nav-footer-links">
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Destination Guides</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Pictorial & Gifts</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Special Offers</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Delivery Times</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">FAQs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-footer-col">
+                    <h4 class="nav-footer-title">Interests</h4>
+                    <ul class="nav-footer-links">
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Adventure Travel</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Art And Culture</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Wildlife And Nature</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Family Holidays</a>
+                        </li>
+                        <li class="nav-footer-item">
+                            <a href="#" class="nav-footer-link">Food And Drink</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="social-media">
+                <a href="#" class="social-link">
+                    <img src="assets/img/social-media/twitter.svg" class="icon" alt="">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/img/social-media/facebook.svg" alt="">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/img/social-media/instagram.svg" alt="">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/img/social-media/linkedin.svg" alt="">
+                </a>
+                <a href="#" class="social-link">
+                    <img src="assets/img/social-media/youtube.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--Footer-->
+
+<div class="arrow-up"><i><</i></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
