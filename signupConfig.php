@@ -52,12 +52,35 @@
             $this->password=$password;
         }
     
+        public function checkUser($email){
+            include_once("loginConfig.php");
+
+            try{
+
+                $stm=$this->dbConx->prepare("SELECT * FROM user where email='$email'");
+                $stm->execute();
+                if ($stm->fetchColumn()){
+                    return true;
+                }
+                else {
+                    return false;
+
+                }
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        }
+
         public function insertData(){
             try{
 
                 $stm=$this->dbConx->prepare('INSERT INTO user( username,email,password) VALUES (?,?,?)');
                 $stm->execute(array($this->username,$this->email,md5($this->password)));
+                $login=new LoginConfig();
+                $login->setEmail($_POST['email']);
+                $login->setPassword($_POST['password']);
 
+                $succes=$login->login();
               
 
             }catch(PDOException $e){

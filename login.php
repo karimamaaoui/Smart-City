@@ -14,28 +14,21 @@
   />
   <link rel="stylesheet" href="css/login.css" />
 </head>
-<body>
+<body >
 
-<div class="signup-form-containe">
+<div class="login-form-containe">
 
-<form action="signupProcess.php" method="post" style="width:30%;height:450px;">
-<h3>  Register</h3>
-
-<input type="email" name="email" class="box" placeholder="enter your email" />
-    <br>
-    <br>
-
-    <input type="text" name="username" class="box" placeholder="enter your username" />
-    <br>
-    <br>
-   
+  <form action="loginProcess.php" method="post" style="width:30%;height:360px;" >
+    <h3>Login</h3>
+    <input type="email" name="email" class="box" placeholder="enter your email" />
     <input type="password" name="password" class="box" placeholder="enter your password" />
-    <br>
-    <br>
-    <input type="submit" value="Register" class="btn" name="signup" />
-    <br>
-    <p>Do you have an account ?<a href="login.php">login now</a></p>
+    <input type="submit" value="login now" class="btn" name="login" />
+    <input type="checkbox" id="remember" />
+    <label for="remember">remember me</label>
+    <p>forget password ?<a href="">click here</a></p>
+    <p>Don't have an account ?<a href="signup.php">register now</a></p>
   </form>
 </div>
+
 </body>
 </html>

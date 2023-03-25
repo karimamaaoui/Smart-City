@@ -1,0 +1,194 @@
+@import url(
+    'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap'
+);
+
+:root{
+    --orange:#ffa500;
+}
+
+body{
+    background-image: url('../img/theatre_municipal_de_tunis.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+
+}
+
+*{
+
+    font-family: 'Nunito',sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+.login-form-containe{
+    position: fixed;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   }
+   
+
+   .login-form-containe form .box{
+    height: 45px;
+    width:88.5%;
+    border: .2rem solid rgba(0, 0, 0, .3);
+    color: #333;
+    margin: .6rem 0;
+    margin-left: 5%;
+    padding: 0 0 0 45px;
+
+}
+
+
+
+.signup-form-containe{
+    position: fixed;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   }
+   
+
+   .signup-form-containe form .box{
+    height: 45px;
+    width:88.5%;
+    border: .2rem solid rgba(0, 0, 0, .3);
+    color: #333;
+    margin: .6rem 0;
+    margin-left: 5%;
+    padding: 0 0 0 45px;
+
+}
+
+.signup-form-containe.active{
+    top:0;
+}
+
+.signup-form-containe form{ 
+    border-radius: .5rem;
+    background: #fff;
+}
+
+
+
+
+.login-form-containe.active{
+    top:0;
+}
+
+.login-form-containe form{ 
+    border-radius: .5rem;
+    background: #fff;
+}
+ form h3{
+    font-size: 2rem;
+    color: #444;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
+    
+ }
+
+ .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--orange);
+    color: #fff;
+    padding: .3rem 1rem;
+    border: .2rem solid var(--orange);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 28%;
+ }
+ 
+ .btn:hover{
+    background: rgba(255, 165, 0, .2);
+    color: var(--orange);
+
+ }
+
+
+
+.login-form-containe form .box:focus{
+    border-color: var(--orange);
+
+}
+
+.signup-form-containe form .box:focus{
+    border-color: var(--orange);
+
+}
+
+.login-form-containe form  #remember{
+    margin-top: 1rem ;
+    margin-left: 25px;
+}
+
+.signup-form-containe form .btn{
+    display: block;
+    width: 40%;
+    border-radius: 10px;
+}
+
+.login-form-containe form .btn{
+    display: block;
+    width: 40%;
+    border-radius: 10px;
+}
+
+ form p{
+    padding: .3rem 0;
+    color: #666;
+    font-size: 10px;
+    margin-left: 40px;
+}
+
+
+ form p  a{
+    color: var(--orange);
+}
+
+ p a:hover{
+    color:#333;
+    text-decoration: underline;
+}
+
+@media(max-width:1200px)
+{
+    
+html{
+    font-size: 55%;
+   }
+
+}
+
+@media(max-width:450px)
+{
+    
+html{
+    font-size: 50%;
+   }
+
+ 
+}
+
+
