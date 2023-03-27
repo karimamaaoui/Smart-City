@@ -1,27 +1,28 @@
 <?php
+     require_once("loginConfig.php");         
+     include_once("connect.php");
+
+     class SignUpConfig{
+
     
-
-    class SignUpConfig{
-
         private $id;
         private $email;
         private $username;
         private $password;
         private $roleId;
-        protected $dbConx;
+       // protected $dbConx;
+        public $res;
 
         public function __construct($id=0,$email="",$username="",$password=""){
             $this->id=$id;
             $this->email=$email;
             $this->username=$username;
             $this->password=$password;
-            include_once("connect.php");
-
-            $this->dbConx=$pdo;
+           // $this->dbConx=$pdo;
             
         }
 
-
+       
         public function getId(){
             return $this->id;
         }
@@ -53,11 +54,21 @@
         }
     
         public function checkUser($email){
-            include_once("loginConfig.php");
 
             try{
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    //$result=$pdo->query("SELECT * FROM user");
+                    //print_r($result->fetch());
+                
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+            
 
-                $stm=$this->dbConx->prepare("SELECT * FROM user where email='$email'");
+                $stm=$pdo->prepare("SELECT * FROM user where email='$email'");
                 $stm->execute();
                 if ($stm->fetchColumn()){
                     return true;
@@ -73,16 +84,22 @@
 
         public function insertData(){
             try{
-
-                $stm=$this->dbConx->prepare('INSERT INTO user( username,email,password) VALUES (?,?,?)');
+             
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                   // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+                $stm=$pdo->prepare('INSERT INTO user( username,email,password) VALUES (?,?,?)');
                 $stm->execute(array($this->username,$this->email,md5($this->password)));
                 $login=new LoginConfig();
                 $login->setEmail($_POST['email']);
                 $login->setPassword($_POST['password']);
-
                 $succes=$login->login();
               
-
             }catch(PDOException $e){
                 return $e->getMessage();
             }

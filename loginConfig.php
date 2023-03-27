@@ -1,4 +1,5 @@
 <?php
+    require_once("connect.php");
     
 
     class LoginConfig{
@@ -13,12 +14,17 @@
             $this->id=$id;
             $this->email=$email;
             $this->password=$password;
-            include_once("connect.php");
-
-            $this->dbConx=$pdo;
+           // $this->dbConx=$pdo;
             
         }
-        
+        public function getId(){
+            return $this->id;
+        }
+        public function setId($id){
+            $this->id=$id;
+        }
+      
+      
         public function getEmail(){
             return $this->email;
         }
@@ -44,8 +50,17 @@
     
         public function fetchAll(){
             try{
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                 
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+            
 
-                $stm=$this->dbConx->prepare('SELECT * FROM user');
+                $stm=$pdo->prepare('SELECT * FROM user');
                 $stm->execute();
                 return $stm->fetchAll();
 
@@ -56,11 +71,44 @@
             }
         }
 
+
+        public function delete(){
+            try{
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+            
+                $stm=$pdo->prepare('DELETE FROM user where id=?');
+                $stm->execute([$this->id]);
+                return $stm->fetchAll();
+              
+              
+
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        }
+
+
         
         public function login(){
             try{
 
-                $stm=$this->dbConx->prepare('SELECT * FROM user WHERE email=? and password=?');
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+            
+                $stm=$pdo->prepare('SELECT * FROM user WHERE email=? and password=?');
                 $stm->execute([$this->email,md5($this->password)]);
                 $user=$stm->fetchAll();
                 if (count($user)>0){
@@ -68,6 +116,8 @@
                     $_SESSION['id']=$user[0]['id'];
                     $_SESSION['email']=$user[0]['email'];
                     $_SESSION['password']=$user[0]['password'];
+                    $_SESSION['username']=$user[0]['username'];
+
                     echo $user[0]['roleId'];
                     if ($user[0]['roleId']==1){
                         header("location:espaceMembre/membre.php");

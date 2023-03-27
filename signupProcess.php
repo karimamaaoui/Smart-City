@@ -1,7 +1,7 @@
 <?php
-    if (isset($_POST['signup'])){
+require_once("signupConfig.php");
 
-        require_once("signupConfig.php");
+    if (isset($_POST['signup'])){
 
         $signup=new SignUpConfig();
         $signup->setUsername($_POST['username']);

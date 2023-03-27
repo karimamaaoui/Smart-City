@@ -1,3 +1,12 @@
+<?php
+    require_once('../loginConfig.php');
+    
+    session_start();
+    $listAllUsers=new LoginConfig();
+    $data=$listAllUsers->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +29,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title"><?php echo $_SESSION['username'] ?></span>
                     </a>
                 </li>
 
@@ -38,7 +47,7 @@
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Customers</span>
+                        <span class="title">Users</span>
                     </a>
                 </li>
 
@@ -79,7 +88,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="../logout.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -159,77 +168,52 @@
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
+                        <h2>Users List</h2>
+                        <!--<a href="#" class="btn">View All</a>
+                        -->
                     </div>
 
                     <table>
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
+                                <td>Username</td>
+                                <td>Email</td>
+                                <td>Role</td>
+                                <td>Action</td>
+                              
                             </tr>
                         </thead>
-
+                    <?php 
+                    
+    
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>User Deleted Successfuly</strong> 
+                                <?= $_SESSION['status']; ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php 
+                        unset($_SESSION['status']);
+                    }
+                     foreach ($data as $key => $val) {
+                        ?>
+                        
                         <tbody>
                             <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
+                                
+                                <td ><?php echo $val['username'] ?></td>
+                                <td><?php echo $val['email']   ?></td>
+                                <td><?php echo $val['roleId'] ?></td>
+                                <td><input type="button" class="btn btn-warning" value="Update" >
+                                <a href="../users/delete.php?id=<?php echo $val['id']?>&req=delete">
+                                <input value="Delete" type="button" class="btn btn-danger"></a>
+                                
+                            </td>
                             </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-                        </tbody>
+                        <?php } ?>
+                           </tbody>
                     </table>
                 </div>
 
@@ -323,6 +307,9 @@
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 </body>
 
 </html>
