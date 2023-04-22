@@ -1,6 +1,7 @@
 // add hovered class to selected list item
 let list = document.querySelectorAll(".navigation li");
 
+
 function activeLink() {
   list.forEach((item) => {
     item.classList.remove("hovered");

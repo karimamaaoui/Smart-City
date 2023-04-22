@@ -104,6 +104,30 @@
                 return $e->getMessage();
             }
         }
+
+        public function addUser(){
+            try{
+             
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                   // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+                $stm=$pdo->prepare('INSERT INTO user( username,email,password) VALUES (?,?,?)');
+                $stm->execute(array($this->username,$this->email,md5($this->password)));
+                $login=new LoginConfig();
+                $login->setEmail($_POST['email']);
+                $login->setPassword($_POST['password']);
+                //$succes=$login->login();
+                
+              
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        }
     }
 
 ?>

@@ -18,10 +18,10 @@
 
 <?php
 
-require_once('../LoginConfig.php');
-require_once("../connect.php");
+require_once('cityConfig.php');
+require_once("../../connect.php");
 
-$record=new LoginConfig();
+$record=new CityConfig();
 
 session_start();
 try{
@@ -40,14 +40,13 @@ if(isset($_GET['id'] )){
     if($_GET['req']=="update"){
         $record->setId($_GET['id']);
         $id=$record->getId();
-        $sql = "SELECT * FROM user WHERE id=:id";
+        $sql = "SELECT * FROM cities WHERE id=:id";
         $query = $pdo->prepare($sql);
         $query->execute(array(':id' => $id));
 
         while($row = $query->fetch(PDO::FETCH_ASSOC))
         {
-            $username = $row['username'];
-            $email = $row['email'];
+            $label = $row['label'];
         }
         $record->update();
         
@@ -60,20 +59,16 @@ if(isset($_GET['id'] )){
 <div class="container">
   <div class="card mt-5">
     <div class="card-header">
-      <h2>Update person</h2>
+      <h2>Update City</h2>
     </div>
     <div class="card-body">
       <form method="post">
         <div class="form-group">
-          <label for="name">Username</label>
-          <input value="<?php echo $username;?>" type="text" name="username" id="username" class="form-control">
+          <label for="name">Label</label>
+          <input value="<?php echo $label;?>" type="text" name="label" id="label" class="form-control">
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" value="<?php echo $email;?>" name="email" id="email" class="form-control">
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-info">Update user</button>
+          <button type="submit" class="btn btn-info">Update City</button>
         </div>
       </form>
     </div>

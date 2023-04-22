@@ -5,6 +5,18 @@
     $listAllUsers=new LoginConfig();
     $data=$listAllUsers->fetchAll();
 
+    require_once("../connect.php");
+
+    try{
+        $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    }catch(PDOException $e)
+    {
+        echo $e->getMessage();
+    }
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +28,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="admin.css">
 </head>
 
@@ -23,83 +38,14 @@
     <!-- =============== Navigation ================ -->
     <div class="container">
         <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
-                        </span>
-                        <span class="title"><?php echo $_SESSION['username'] ?></span>
-                    </a>
-                </li>
+        <?php 
+        include "cities/sidebar.php";
+     ?>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Users</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                        </span>
-                        <span class="title">Messages</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
-                        </span>
-                        <span class="title">Help</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
-                        </span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </span>
-                        <span class="title">Password</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../logout.php">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    </div>
 
         <!-- ========================= Main ==================== -->
-        <div class="main">
+        <div class="main allContent-section py-4"  >
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
@@ -113,7 +59,7 @@
                 </div>
 
                 <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                    <img src="../img/customer01.jpg" alt="">
                 </div>
             </div>
 
@@ -121,8 +67,23 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+                        <div class="numbers">
+                        <?php
+                        $sql="SELECT * from user ";
+                        $result=$pdo-> query($sql);
+                        $count=0;
+                        if ($result->rowCount() > 0){
+                            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                $count=$count+1;
+                            }
+                        }
+
+                        echo $count;
+                    ?>
+
+
+                        </div>
+                        <div class="cardName">Total Users</div>
                     </div>
 
                     <div class="iconBx">
@@ -132,8 +93,22 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="numbers">  
+                             <?php
+                       
+                       $sql="SELECT * from cities";
+                       $result=$pdo-> query($sql);
+                       $count=0;
+                       if ($result->rowCount() > 0){
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            $count=$count+1;
+                        }
+                    }
+
+                   echo $count;
+                   ?>
+                 </div>
+                        <div class="cardName">Total Cities</div>
                     </div>
 
                     <div class="iconBx">
@@ -143,7 +118,21 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
+                        <div class="numbers">
+                        <?php
+                       
+                       $sql="SELECT * from cities";
+                       $result=$pdo-> query($sql);
+                       $count=0;
+                       if ($result->rowCount() > 0){
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            $count=$count+1;
+                        }
+                    }
+
+                   echo $count;
+                   ?>
+                        </div>
                         <div class="cardName">Comments</div>
                     </div>
 
@@ -154,7 +143,21 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">$7,842</div>
+                        <div class="numbers">
+                        <?php
+                       
+                       $sql="SELECT * from cities";
+                       $result=$pdo-> query($sql);
+                       $count=0;
+                       if ($result->rowCount() > 0){
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            $count=$count+1;
+                        }
+                    }
+
+                   echo $count;
+                   ?>
+                        </div>
                         <div class="cardName">Earning</div>
                     </div>
 
@@ -165,15 +168,16 @@
             </div>
 
             <!-- ================ Order Details List ================= -->
+            <div class="sectionUser"> 
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Users List</h2>
-                        <!--<a href="#" class="btn">View All</a>
-                        -->
+                        <a href="../users/create.php" class="btn">Create New User</a>
+                        
                     </div>
 
-                    <table>
+                    <table id="users">
                         <thead>
                             <tr>
                                 <td>Username</td>
@@ -197,7 +201,19 @@
                         <?php 
                         unset($_SESSION['status']);
                     }
-                     foreach ($data as $key => $val) {
+                    if(isset($_SESSION['statusupdate']))
+                    {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>User Updated Successfuly</strong> 
+                                <?= $_SESSION['statusupdate']; ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php 
+                        unset($_SESSION['statusupdate']);
+                    }
+                
+                    foreach ($data as $key => $val) {
                         ?>
                         
                         <tbody>
@@ -206,7 +222,10 @@
                                 <td ><?php echo $val['username'] ?></td>
                                 <td><?php echo $val['email']   ?></td>
                                 <td><?php echo $val['roleId'] ?></td>
-                                <td><input type="button" class="btn btn-warning" value="Update" >
+                                <td>
+                                <a href="../users/update.php?id=<?php echo $val['id']?>&req=update">
+                                <input type="button" class="btn btn-warning" value="Update" >
+                                 </a>
                                 <a href="../users/delete.php?id=<?php echo $val['id']?>&req=delete">
                                 <input value="Delete" type="button" class="btn btn-danger"></a>
                                 
@@ -217,97 +236,34 @@
                     </table>
                 </div>
 
-                <!-- ================= New Customers ================ -->
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
             </div>
         </div>
+        </div>
     </div>
+    <?php
+            if (isset($_GET['cities']) && $_GET['cities'] == "success") {
+                echo '<script> alert("Category Successfully Added")</script>';
+            }else if (isset($_GET['cities']) && $_GET['cities'] == "error") {
+                echo '<script> alert("Adding Unsuccess")</script>';
+            }
+          ?>
+
 
     <!-- =========== Scripts =========  -->
-    <script src="main.js"></script>
+    <script type="text/javascript" src="ajaxWork.js"></script>    
+
+    <script type="text/javascript" src="main.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 
 
 </body>
