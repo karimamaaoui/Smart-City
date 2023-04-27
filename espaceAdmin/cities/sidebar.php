@@ -42,7 +42,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="../espaceAdmin/hospitals/createHospital.php">
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
