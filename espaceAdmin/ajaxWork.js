@@ -9,3 +9,14 @@ function showCities(){
         }
     });
 }
+
+function showHospitals(){  
+    $.ajax({
+        url:"hospitals/hospitals.php",
+        method:"post",
+        data:{record:1},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}

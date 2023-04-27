@@ -42,11 +42,11 @@
                 </li>
 
                 <li>
-                    <a href="../espaceAdmin/hospitals/createHospital.php">
+                    <a onclick="showHospitals()" href="#hospitals">
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
-                        <span class="title">Help</span>
+                        <span class="title">Hospitals</span>
                     </a>
                 </li>
 

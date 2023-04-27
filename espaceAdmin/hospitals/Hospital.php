@@ -105,7 +105,7 @@
                 
                 $stm->execute(array($this->name,$this->address,$this->description,$this->tel,$this->idCity));
 
-               // return $stm->fetchAll();
+                return $stm->fetchAll();
 
             
             }catch(PDOException $e){
