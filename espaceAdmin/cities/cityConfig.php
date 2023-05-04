@@ -5,11 +5,13 @@
 
         private $id;
         private $label;
+        private $pic;
       
     
-          public function __construct($id=0,$label=""){
+          public function __construct($id=0,$label="",$pic=""){
             $this->id=$id;
             $this->label=$label;
+            $this->pic=$pic;
             
         }
         public function getId(){
@@ -25,6 +27,15 @@
         
         public function setLabel($label){
             $this->label=$label;
+        }
+
+        
+        public function getPic(){
+            return $this->pic;
+        }
+        
+        public function setpic($pic){
+            $this->pic=$pic;
         }
 
         public function fetchAll(){
@@ -92,10 +103,8 @@
                     echo $e->getMessage();
                 }
 
-                $stm=$pdo->prepare('INSERT INTO cities (label) VALUES (?)');
-                
-                $stm->execute(array($this->label));
-              
+                $stm=$pdo->prepare('INSERT INTO cities (label,pic) VALUES (?,?)');
+                $stm->execute(array($this->label,$this->pic));
             
             }catch(PDOException $e){
                 return $e->getMessage();

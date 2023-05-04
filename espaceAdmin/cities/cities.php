@@ -74,6 +74,8 @@
                         <thead>
                             <tr>
                                 <td>Label</td>
+                                <td>Picture</td>
+
                                 <td>Action</td>
                               
                             </tr>
@@ -111,6 +113,9 @@
                             <tr>
                                 
                                 <td ><?php echo $val['label'] ?></td>
+                                <td><img src="../espaceAdmin/profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
+
+                               
                                 <td>
                                 <a href="cities/updateCity.php?id=<?php echo $val['id']?>&req=update">
                                 <input type="button" class="btn btn-warning" value="Update" >
