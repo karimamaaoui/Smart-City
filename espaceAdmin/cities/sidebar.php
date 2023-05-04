@@ -51,6 +51,52 @@
                 </li>
 
                 <li>
+                    <a onclick="showPlace()" href="#placetourist">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Place Tourist</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="showUniversity()" href="#university">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">University</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a onclick="showHotels()" href="#hotels">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Hotels</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="showResto()" href="#resto">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Restaurant</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="showPolice()" href="#police">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Police Stations</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
