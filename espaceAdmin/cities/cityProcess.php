@@ -28,7 +28,7 @@ require_once("cityConfig.php");
             //rename the image file
         $pic=md5($imgfile).time().$extension;
         // Code for move image into directory
-        move_uploaded_file($_FILES["pic"]["tmp_name"],"profilepics/".$pic);
+        move_uploaded_file($_FILES["pic"]["tmp_name"],"../profilepics/".$pic);
         $cities=new CityConfig();
         $cities->setLabel($_POST['label']);
         $cities->setPic($pic);
