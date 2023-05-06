@@ -10,14 +10,16 @@
         private $tel;
         private $idCity;
       
-    
-          public function __construct($id=0,$name="",$address="",$description="",$tel="",$idCity=1){
+        private $pic;
+
+          public function __construct($id=0,$name="",$address="",$description="",$tel="",$idCity=1,$pic=""){
             $this->id=$id;
             $this->name=$name;
             $this->address=$address;
             $this->description=$description;
             $this->tel=$tel;
             $this->idCity=$idCity;
+            $this->pic=$pic;
             
         }
         public function getId(){
@@ -63,6 +65,13 @@
         public function setIdCity($idCity){
             $this->idCity=$idCity;
         }
+        public function getPic(){
+            return $this->pic;
+        }
+        
+        public function setpic($pic){
+            $this->pic=$pic;
+        }
 
 
 
@@ -101,9 +110,9 @@
                     echo $e->getMessage();
                 }
 
-                $stm=$pdo->prepare('INSERT INTO `university`( `name`, `address`, `description`, `tel`, `idCity`)  VALUES (?,?,?,?,?)');
+                $stm=$pdo->prepare('INSERT INTO `university`( `name`, `address`, `description`, `tel`, `idCity`,`pic`)  VALUES (?,?,?,?,?,?)');
                 
-                $stm->execute(array($this->name,$this->address,$this->description,$this->tel,$this->idCity));
+                $stm->execute(array($this->name,$this->address,$this->description,$this->tel,$this->idCity,$this->pic));
 
                 return $stm->fetchAll();
 

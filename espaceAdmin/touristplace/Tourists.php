@@ -78,7 +78,7 @@
                                 <td>Description</td>
                                 <td>Tel</td>
                                 <td>Id City</td>
-
+                                <td>Picture </td>
                                 <td>Action</td>
                               
                             </tr>
@@ -121,6 +121,8 @@
                                 <td ><?php echo $val['description'] ?></td>
                                 <td ><?php echo $val['tel'] ?></td>
                                 <td ><?php echo $val['idCity'] ?></td>
+                                <td><img src="../espaceAdmin/profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
+
                                 <td>
                                 <a href="touristplace/updateTourist.php?id=<?php echo $val['id']?>&req=update">
                                 <input type="button" class="btn btn-warning" value="Update" >

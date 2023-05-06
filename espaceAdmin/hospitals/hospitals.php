@@ -79,7 +79,7 @@
                                 <td></td>
                                 <td>Tel</td>
                                 <td>Id City</td>
-                                <td>Picutre</td>
+                                <td>Picture</td>
                                 <td>Action</td>
                               
                             </tr>

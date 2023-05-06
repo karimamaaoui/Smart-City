@@ -38,7 +38,7 @@ $data=$listAllCity->fetchAll();
 <div class="sectionCity">
 <div class="cities-form-containe">
 
-<form action="UniversityProcess.php" method="post" style="width:30%;height:450px;">
+<form action="UniversityProcess.php" method="post" style="width:30%;height:450px;"enctype="multipart/form-data">
 <h3>  Add new University</h3>
 <input type="text" name="name" class="box" placeholder="enter name" />
     <br>
@@ -51,7 +51,13 @@ $data=$listAllCity->fetchAll();
     <br>
     <input type="tel" name="tel" class="box" placeholder="enter tel" />
     <br>
-    <br>
+    <br>  
+    <input type="file" class="form-control" name="pic"  required="true">
+        	<span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
+        
+            <br>
+            <br>
+  
 
     <select name="idCity" id="Hospital">
     <option value="">Select City</option>
