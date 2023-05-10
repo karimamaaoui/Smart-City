@@ -10,6 +10,25 @@
   />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+<?php
+    require_once('espaceAdmin/cities/cityConfig.php');
+    
+    session_start();
+    $listAllCity=new CityConfig();
+    $data=$listAllCity->fetchAll();
+
+
+    try{
+        $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    }catch(PDOException $e)
+    {
+        echo $e->getMessage();
+    }
+    
+
+?>
 <body>
 
 <!--Header-->
@@ -84,55 +103,63 @@
   </h1>
   <div class="row">
     <div class="images">
-        <img src="img/bizerte.jpg" height="100px">
-        <div class="content">
+                         
+<?php
+$sql = "SELECT * FROM cities";
+$result = $pdo->query($sql);
 
-        </div>
+
+
+if ($result->rowCount() > 0) {
+  while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo '<div class="card">';
+    echo '<div class="card-content">';
+    echo '<h2 class="card-title">' . $row["label"] . '</h2>';
+    echo '<p class="card-text"> <img src="espaceAdmin/profilepics/' . $row["pic"]  . '" alt="' . $row["pic"]  . ' height="100px" width="100px"""> </p> <br/>';
+
+    echo '</div>';
+    echo '</div>';
+  }
+} else {
+  echo "No results";
+}
+?>
     </div>
     
   </div>
 </section>
+<style>
+.card {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 300px;
+}
 
-<section class="features">
-  <div class="container">
-      <div class="features-content">
-          <div class="section-header">
-              <h3 class="section-head-title">Featured destinations</h3>
-              <a href="#" class="view-all">View all <span>></span></a>
-          </div>
-          <div class="features-cards">
-              <div class="feature-card">
-                  <img src="img/raja-ampat.jpg" alt="" class="feature-img">
-                  <div class="feature-card-desc">
-                      <span class="location">Raja Ampat</span>
-                      <span class="country">Indonesia</span>
-                  </div>
-              </div>
-              <div class="feature-card">
-                  <img src="img/fanjingshan.jpg" alt="" class="feature-img">
-                  <div class="feature-card-desc">
-                      <span class="location">Fanjingshan</span>
-                      <span class="country">China</span>
-                  </div>
-              </div>
-              <div class="feature-card">
-                  <img src="img/vevey.jpg" alt="" class="feature-img">
-                  <div class="feature-card-desc">
-                      <span class="location">Vevey</span>
-                      <span class="country">Switzerland</span>
-                  </div>
-              </div>
-              <div class="feature-card">
-                  <img src="img/skadar.jpg" alt="" class="feature-img">
-                  <div class="feature-card-desc">
-                      <span class="location">Skadar</span>
-                      <span class="country">Montenegro</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
+.card img {
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-text {
+  margin: 0;
+  font-size: 18px;
+}
+</style>
+
 
 
 <!--Footer-->
@@ -140,74 +167,38 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-text">
-                <img src="assets/img/logo.svg" alt="" class="footer-icon">
                 <p class="footer-desc">
                     Plan and book your perfect trip with
                     expert advice, travel tips destination
                     information from us
                 </p>
-                <p class="copyright">©2020 Thousand Sunny. All rights reserved</p>
+                <p class="copyright">©2023 Thousand Sunny. All rights reserved</p>
             </div>
             <div class="nav-footer">
                 <div class="nav-footer-col">
                     <h4 class="nav-footer-title">Destinations</h4>
                     <ul class="nav-footer-links">
                         <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Africa</a>
+                            <a href="#" class="nav-footer-link">Tunisia</a>
                         </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Antarctica</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Asia</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Europe</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">America</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav-footer-col">
-                    <h4 class="nav-footer-title">Shop</h4>
-                    <ul class="nav-footer-links">
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Destination Guides</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Pictorial & Gifts</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Special Offers</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Delivery Times</a>
-                        </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">FAQs</a>
-                        </li>
-                    </ul>
+                       </ul>
                 </div>
                 <div class="nav-footer-col">
                     <h4 class="nav-footer-title">Interests</h4>
                     <ul class="nav-footer-links">
                         <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Adventure Travel</a>
+                            <a href="#" class="nav-footer-link">Place Tourist</a>
                         </li>
                         <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Art And Culture</a>
+                            <a href="#" class="nav-footer-link">Restaurant</a>
                         </li>
                         <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Wildlife And Nature</a>
+                            <a href="#" class="nav-footer-link">Hotels</a>
                         </li>
                         <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Family Holidays</a>
+                            <a href="#" class="nav-footer-link">Hospital</a>
                         </li>
-                        <li class="nav-footer-item">
-                            <a href="#" class="nav-footer-link">Food And Drink</a>
-                        </li>
-                    </ul>
+                       </ul>
                 </div>
             </div>
             <div class="social-media">
