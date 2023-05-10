@@ -59,6 +59,7 @@
                 </div>
             </div>
 
+
     <!-- =============== Navigation ================ -->
    
 <div class="sectionUser"> 
@@ -66,7 +67,7 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>City Lists</h2>
-                        <a href="cities/city.php" class="btn">Create New City</a>
+                        <a href="city.php" class="btn">Create New City</a>
                         
                     </div>
 
@@ -113,14 +114,14 @@
                             <tr>
                                 
                                 <td ><?php echo $val['label'] ?></td>
-                                <td><img src="../espaceAdmin/profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
+                                <td><img src="../profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
 
                                
                                 <td>
-                                <a href="cities/updateCity.php?id=<?php echo $val['id']?>&req=update">
+                                <a href="updateCity.php?id=<?php echo $val['id']?>&req=update">
                                 <input type="button" class="btn btn-warning" value="Update" >
                                  </a>
-                                <a href="cities/deleteCity.php?id=<?php echo $val['id']?>&req=delete">
+                                <a href="deleteCity.php?id=<?php echo $val['id']?>&req=delete">
                                 <input value="Delete" type="button" class="btn btn-danger"></a>
                                 
                             </td>

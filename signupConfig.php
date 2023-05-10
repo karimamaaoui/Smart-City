@@ -53,6 +53,7 @@
             $this->password=$password;
         }
     
+        
         public function checkUser($email){
 
             try{

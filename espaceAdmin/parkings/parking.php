@@ -7,21 +7,22 @@ class Parking {
     private $description;
     private $tel;
     private $idCity;
-    private $pic;
-    private $isAvailable;
+    private $numberPlace;
+    private $price;
     
-    public function __construct($id,$id=0,$name="",$address="",$description="",$tel="",$idCity=1,$pic="", $isAvailable) {
-        $this->id=$id;
+    public function __construct($id=0,$name="",$address="",$description="",$tel="",$idCity=1,$numberPlace=0,$price=0) {
+             $this->id=$id;
             $this->name=$name;
             $this->address=$address;
             $this->description=$description;
             $this->tel=$tel;
             $this->idCity=$idCity;
-            $this->pic=$pic;
-            $this->isAvailable = $isAvailable;
-    }
+            $this->numberPlace=$numberPlace;
+            $this->price=$price;
+
+        }
     
-    // getters and setters for the class properties
+   
     public function getId(){
         return $this->id;
     }
@@ -29,6 +30,18 @@ class Parking {
         $this->id=$id;
     }
   
+    public function getNumberPlace(){
+        return $this->numberPlace;
+    }
+    public function setNumberPlace($numberPlace){
+        $this->numberPlace=$numberPlace;
+    }
+  
+    public function decrementPlaceNumber() {
+        $this->numberPlace--;
+    }
+    
+   
     public function getName(){
         return $this->name;
     }
@@ -43,13 +56,6 @@ class Parking {
     
     public function setTel($tel){
         $this->tel=$tel;
-    }
-    public function getPic(){
-        return $this->pic;
-    }
-    
-    public function setpic($pic){
-        $this->pic=$pic;
     }
 
     public function getAddress(){
@@ -74,13 +80,61 @@ class Parking {
         $this->idCity=$idCity;
     }
 
-    public function getIsAvailable() {
-        return $this->isAvailable;
+    public function getPrice() {
+        return $this->price;
     }
     
-    public function setIsAvailable($isAvailable) {
-        $this->isAvailable = $isAvailable;
+    public function setPrice($price) {
+        $this->price = $price;
     }
+
+
+    public function addParking(){
+        try{
+            try{
+                $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             
+            }catch(PDOException $e)
+            {
+                echo $e->getMessage();
+            }
+
+            $stm=$pdo->prepare('INSERT INTO `parking`( `name`, `address`, `description`, `tel`, `idCity`,`numberPlace`,`price`)  VALUES (?,?,?,?,?,?,?)');
+            $stm->execute(array($this->name,$this->address,$this->description,$this->tel,$this->idCity,$this->numberPlace,$this->price));
+
+            return $stm->fetchAll();
+
+        
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+            
+        
+        }
+    
+        public function fetchAll(){
+            try{
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                 
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+            
+
+                $stm=$pdo->prepare('SELECT * FROM parking');
+                $stm->execute();
+                return $stm->fetchAll();
+
+              
+
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        }
 
 
     public function reserve() {

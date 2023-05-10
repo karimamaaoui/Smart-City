@@ -31,7 +31,7 @@
 
                 <li>
 
-                    <a onclick="showCities()" href="#cities"  >
+                    <a href="../espaceAdmin/cities/cities.php"   >
                         <span class="icon">
                             <ion-icon name="chatbubble-outline"></ion-icon>
                         </span>
@@ -42,7 +42,7 @@
                 </li>
 
                 <li>
-                    <a onclick="showHospitals()" href="#hospitals">
+                    <a href="../espaceAdmin/hospitals/Hospitals.php" >
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
@@ -51,7 +51,7 @@
                 </li>
 
                 <li>
-                    <a onclick="showPlace()" href="#placetourist">
+                    <a href="../espaceAdmin/touristplace/Tourists.php" >
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
@@ -60,7 +60,7 @@
                 </li>
 
                 <li>
-                    <a onclick="showUniversity()" href="#university">
+                    <a href="../espaceAdmin/university/Universitys.php">
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
@@ -70,7 +70,7 @@
 
 
                 <li>
-                    <a onclick="showHotels()" href="#hotels">
+                    <a  href="../espaceAdmin/hotels/Hotels.php">
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
@@ -79,7 +79,7 @@
                 </li>
 
                 <li>
-                    <a onclick="showResto()" href="#resto">
+                    <a  href="../espaceAdmin/restaurants/Restaurants.php">
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
@@ -88,7 +88,7 @@
                 </li>
 
                 <li>
-                    <a onclick="showPolice()" href="#police">
+                    <a href="../espaceAdmin/policestation/PoliceStations.php">
                         <span class="icon">
                             <ion-icon name="help-outline"></ion-icon>
                         </span>
@@ -97,11 +97,11 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="../espaceAdmin/Bank/Banks.php">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
-                        <span class="title">Settings</span>
+                        <span class="title">Bank</span>
                     </a>
                 </li>
 

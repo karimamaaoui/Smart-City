@@ -39,7 +39,7 @@
     <div class="container">
         <div class="navigation">
         <?php 
-        include "cities/sidebar.php";
+        include "sidebar.php";
      ?>
 
     </div>

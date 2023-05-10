@@ -168,7 +168,7 @@
 
                     echo $user[0]['roleId'];
                     if ($user[0]['roleId']==1){
-                        header("location:espaceMembre/membre.php");
+                        header("location:espaceMembre/homePageMembre.php");
 
 
                     }

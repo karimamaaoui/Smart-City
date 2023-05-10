@@ -2,16 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 </head>
 <script src="../main.js"></script>
 <?php
 
 require_once('../cities/cityConfig.php');
-require_once("../../connect.php");
 
 try{
     $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
@@ -35,11 +34,17 @@ $data=$listAllCity->fetchAll();
 <body>
 
 
-<div class="sectionCity">
-<div class="cities-form-containe">
+
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+    <h3>  Add new Hotel</h3>
+    </div>
+    <div class="card-body">
+
+    <div class="">
 
 <form action="HotelProcess.php" method="post" style="width:30%;height:450px;" enctype="multipart/form-data">
-<h3>  Add new Hotel</h3>
 <input type="text" name="name" class="box" placeholder="enter name" />
     <br>
     <br>
@@ -90,6 +95,10 @@ $data=$listAllCity->fetchAll();
 
     <input type="submit" value="Add" class="btn" name="addhotel" />
 </form>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </body>

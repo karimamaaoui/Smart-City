@@ -61,7 +61,7 @@
 
     <!-- =============== Navigation ================ -->
    
-<div class="sectionUser"> 
+<div class="sectionUser" style="width=100px"> 
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
@@ -123,7 +123,7 @@
                                 <td></td>
                                 <td ><?php echo $val['tel'] ?></td>
                                 <td ><?php echo $val['idCity'] ?></td>
-                                <td><img src="../espaceAdmin/profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
+                                <td><img src="../profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
 
                                 <td>
                                 <a href="hospitals/updateHospital.php?id=<?php echo $val['id']?>&req=update">

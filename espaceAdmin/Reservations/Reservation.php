@@ -1,36 +1,32 @@
-<?
+<?php
 
 class Reservation {
     private $id;
+
     private $userId;
-    private $spaceId;
+    private $parkingId;
     private $date;
     private $startTime;
     private $endTime;
-    private $numSpaces;
-    
-    public function __construct($id, $userId, $spaceId, $date, $startTime, $endTime, $numSpaces) {
-        $this->id = $id;
+
+    public function __construct($userId, $parkingId, $date) {
+        $this->id=0;
         $this->userId = $userId;
-        $this->spaceId = $spaceId;
+        $this->parkingId = $parkingId;
         $this->date = $date;
-        $this->startTime = $startTime;
-        $this->endTime = $endTime;
-        $this->numSpaces = $numSpaces;
     }
     
-    public function makeReservation() {
-        // check if the selected parking space is available for the given date and time range
-        if (!$this->isSpaceAvailable()) {
-            throw new Exception("The selected parking space is not available for the selected time range.");
-        }
-        
+   /* public function makeReservation() {
+        if ($this->parking->isAvailable()) {
+            $this->parking->setNumberPlace($this->parking->getNumberPlace() - 1);
+            
+          
         // make the reservation by inserting a new row into the reservations table
-        $query = "INSERT INTO reservations (user_id, space_id, date, start_time, end_time, num_spaces) VALUES ($this->userId, $this->spaceId, '$this->date', '$this->startTime', '$this->endTime', $this->numSpaces)";
+        $query = "INSERT INTO reservations (user_id, parkingId, date, start_time, end_time, num_spaces) VALUES ($this->userId, $this->parkingId, '$this->date', '$this->startTime', '$this->endTime', $this->numSpaces)";
         // execute the query using a database connection object
         
         // update the status of the selected parking space to "reserved"
-        $query = "UPDATE parking_spaces SET status = 'reserved' WHERE id = $this->spaceId";
+        $query = "UPDATE parking_spaces SET status = 'reserved' WHERE id = $this->parkingId";
         // execute the query using a database connection object
         
         // update the available count of parking spaces for the selected parking lot and time range
@@ -38,26 +34,27 @@ class Reservation {
         $availableCount = ParkingSpace::getAvailableCount($lotId, $this->date, $this->startTime, $this->endTime);
         $query = "UPDATE availability SET count = $availableCount WHERE lot_id = $lotId AND date = '$this->date' AND start_time = '$this->startTime'";
         // execute the query using a database connection object
-    }
+    }}*/
     
-    public function isSpaceAvailable() {
-        // check if the selected parking space is available for the given date and time range
-        $availableCount = ParkingSpace::getAvailableCount($this->getSpace()->getLotId(), $this->date, $this->startTime, $this->endTime);
-        return $availableCount >= $this->numSpaces;
-    }
+    
     
     // getters and setters for the class properties
-    public function getId() {
+ /*   public function getId() {
         return $this->id;
-    }
+    }*/
     
     public function getUserId() {
         return $this->userId;
     }
     
-    public function getSpaceId() {
-        return $this->spaceId;
+    public function getParkingId() {
+        return $this->parkingId;
     }
+    
+    public function setParkingId($parkingId) {
+         $this->parkingId=$parkingId;
+    }
+    
     
     public function getDate() {
         return $this->date;
@@ -71,20 +68,75 @@ class Reservation {
         return $this->endTime;
     }
     
-    public function getNumSpaces() {
-        return $this->numSpaces;
-    }
-    
-    public function getSpace() {
-        // retrieve the parking space object for the selected space id from the database
-        $query = "SELECT * FROM parking WHERE id = $this->spaceId";
-        // execute the query using a database connection object
-        // fetch the result and create a new ParkingSpace object with the result data
-        $result = $db->query($query);
-        $data = $result->fetch_assoc();
-        $space = new ParkingSpace($data['id'], $data['lot_id'], $data['name'], $data['description'], $data['status']);
-        return $space;
+    public function setUserId($iduser) {
+         $this->userId=$iduser;
     }
 
+  /*  public function setId($id) {
+        $this->id=$id;
+   }*/
+   
+   public function setEndTime($endTime) {
+    $this->endTime=$endTime;
 }
+  
+public function setStartTime($startTime) {
+    $this->startTime=$startTime;
+}
+ 
+public function setDate($date) {
+    $this->date=$date;
+}
+
+
+   public function makeReservation() {
+        try {
+            try{
+                $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             
+            }catch(PDOException $e)
+            {
+                echo $e->getMessage();
+            }
+
+            $stmt = $pdo->prepare("INSERT INTO `reservation` (`parkingId`, `userId`, `date`) VALUES (?, ?, ?)");
+            $stmt->execute([$this->parkingId, $this->userId, $this->date]);
+            
+               return $stmt->fetchAll();
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    
+        }
+
+        public function fetchAll(){
+            try{
+                try{
+                    $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                 
+                }catch(PDOException $e)
+                {
+                    echo $e->getMessage();
+                }
+            
+    
+                $stm=$pdo->prepare('SELECT * FROM reservation');
+                $stm->execute();
+                return $stm->fetchAll();
+    
+              
+    
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        }
+    
+    
+    }
+
+  
+
 ?>

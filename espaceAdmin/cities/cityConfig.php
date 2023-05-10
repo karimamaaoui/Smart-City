@@ -1,5 +1,4 @@
 <?php
-    require_once("../../connect.php");
 
       class CityConfig{
 
@@ -160,7 +159,7 @@
                       $statement = $pdo->prepare($sql);
                       if ($statement->execute([':label' => $label, ':id' => $id])) {
                         
-                        header("location:../dashboard.php");
+                        header("location:cities.php");
     
                     
                     }     

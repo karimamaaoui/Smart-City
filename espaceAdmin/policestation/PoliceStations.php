@@ -123,7 +123,7 @@
                                 <td ><?php echo $val['description'] ?></td>
                                 <td ><?php echo $val['tel'] ?></td>
                                 <td ><?php echo $val['idCity'] ?></td>
-                                <td><img src="../espaceAdmin/profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
+                                <td><img src="../profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
 
                                 <td>
                                 <a href="policestation/updatePoliceStation.php?id=<?php echo $val['id']?>&req=update">
