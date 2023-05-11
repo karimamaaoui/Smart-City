@@ -43,18 +43,24 @@
 <div class="main allContent-section py-4"  >
 
 <div class="topbar">
-                <div class="toggle">
+<div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
                 <div class="search">
-                    
-                </div>
+    <form action="search.php" method="GET">
+            <input type="text" placeholder="Search here" name="label">
+        <input type="submit" value="Search" class="button-style " >
+    </form>
+</div>
 
+                <div class="user">
+                </div>
             </div>
 
     <!-- =============== Navigation ================ -->
    
+
 <div class=""> 
 
             <div class="">
@@ -73,6 +79,14 @@
   text-decoration: none;
   border-radius: 5px;
 }
+
+.button-style {
+  background-color: #ccc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 </style>
                  
 <?php

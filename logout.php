@@ -2,5 +2,5 @@
     session_start();
     unset($_SESSION['email']);
     unset($_SESSION['password']);
-    header("location:landingPage.html");
+    header("location:index.php");
 ?>

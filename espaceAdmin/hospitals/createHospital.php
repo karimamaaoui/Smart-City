@@ -83,11 +83,6 @@ $data=$listAllCity->fetchAll();
                     }
 
                     ?>
-
-
-  
-
-   
 </select>
     <br>
     <br>

@@ -78,7 +78,6 @@
                                 <td></td>
                                 <td>Tel</td>
                                 <td>Id City</td>
-                                <td>Picture</td>
                                 <td>Action</td>
                               
                             </tr>
@@ -122,13 +121,12 @@
                                 <td></td>
                                 <td ><?php echo $val['tel'] ?></td>
                                 <td ><?php echo $val['idCity'] ?></td>
-                                <td><img src="../profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
 
                                 <td>
-                                <a href="Bank/updateBank.php?id=<?php echo $val['id']?>&req=update">
+                                <a href="updateBank.php?id=<?php echo $val['id']?>&req=update">
                                 <input type="button" class="btn btn-warning" value="Update" >
                                  </a>
-                                <a href="Bank/deleteBank.php?id=<?php echo $val['id']?>&req=delete">
+                                <a href="deleteBank.php?id=<?php echo $val['id']?>&req=delete">
                                 <input value="Delete" type="button" class="btn btn-danger"></a>
                                 
                             </td>

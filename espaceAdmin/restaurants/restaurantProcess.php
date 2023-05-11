@@ -39,7 +39,7 @@ require_once("Restaurant.php");
         $resto->addRestaurant();
 
                 echo "<script> alert('Restaurant added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:Restaurants.php");
             
         }
     }

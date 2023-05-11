@@ -41,7 +41,7 @@ require_once("University.php");
         $university->addUniversity();
 
                 echo "<script> alert('university added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:Universitys.php");
             
         }
     }

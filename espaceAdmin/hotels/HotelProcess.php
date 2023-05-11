@@ -40,7 +40,7 @@ require_once("Hotel.php");
         $hotels->addHotels();
 
                 echo "<script> alert('hotel added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:../hotels.php");
             
         }
     }

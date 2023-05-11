@@ -33,8 +33,6 @@ try{
     echo $e->getMessage();
 }
 
-
-//after insert or update 
 if(isset($_GET['id'] )){
 
     if($_GET['req']=="update"){

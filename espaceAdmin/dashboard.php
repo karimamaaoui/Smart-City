@@ -133,7 +133,7 @@
                    echo $count;
                    ?>
                         </div>
-                        <div class="cardName">Comments</div>
+                        <div class="cardName">Total Parking</div>
                     </div>
 
                     <div class="iconBx">
@@ -146,7 +146,7 @@
                         <div class="numbers">
                         <?php
                        
-                       $sql="SELECT * from cities";
+                       $sql="SELECT * from parking";
                        $result=$pdo-> query($sql);
                        $count=0;
                        if ($result->rowCount() > 0){
@@ -158,7 +158,7 @@
                    echo $count;
                    ?>
                         </div>
-                        <div class="cardName">Earning</div>
+                        <div class="cardName">Total Bank</div>
                     </div>
 
                     <div class="iconBx">

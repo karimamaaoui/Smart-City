@@ -40,7 +40,7 @@ require_once("PoliceStation.php");
         $polices->addPoliceStation();
 
                 echo "<script> alert('Police Station added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:PoliceStations.php");
             
         }
     }

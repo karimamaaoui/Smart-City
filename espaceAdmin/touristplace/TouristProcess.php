@@ -42,7 +42,7 @@ require_once("Tourist.php");
         $tourist->addTourist();
 
                 echo "<script> alert('tourist place added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:Tourists.php");
             
 
     }}

@@ -66,7 +66,7 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Restaurant Lists</h2>
-                        <a href="restaurants/createRestaurant.php" class="btn">Create New Restaurant</a>
+                        <a href="createRestaurant.php" class="btn">Create New Restaurant</a>
                         
                     </div>
 
@@ -124,10 +124,10 @@
                                 <td><img src="../profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
 
                                 <td>
-                                <a href="restaurants/updateRestaurant.php?id=<?php echo $val['id']?>&req=update">
+                                <a href="updateRestaurant.php?id=<?php echo $val['id']?>&req=update">
                                 <input type="button" class="btn btn-warning" value="Update" >
                                  </a>
-                                <a href="restaurants/deleteRestaurant.php?id=<?php echo $val['id']?>&req=delete">
+                                <a href="deleteRestaurant.php?id=<?php echo $val['id']?>&req=delete">
                                 <input value="Delete" type="button" class="btn btn-danger"></a>
                                 
                             </td>

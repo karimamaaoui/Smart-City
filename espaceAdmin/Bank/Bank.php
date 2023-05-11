@@ -155,14 +155,18 @@
                     $sql = 'SELECT * FROM bank WHERE id=:id';
                     $statement = $pdo->prepare($sql);
                     $statement->execute([':id' => $id ]);
-                    $city = $statement->fetch(PDO::FETCH_OBJ);
-                    if (isset ($_POST['label'])  ) {
-                      $label = $_POST['label'];
-                      $sql = 'UPDATE bank SET label=:label WHERE id=:id';
+                  //  $city = $statement->fetch(PDO::FETCH_OBJ);
+                    if (isset ($_POST )) {
+                      $name = $_POST['name'];
+                      $description = $_POST['description'];
+                      $tel = $_POST['tel'];
+                      $address = $_POST['name'];
+
+                        $sql = 'UPDATE bank SET name=:name, description=:description, tel=:tel, address=:address WHERE id=:id';
                       $statement = $pdo->prepare($sql);
-                      if ($statement->execute([':label' => $label, ':id' => $id])) {
+                      if ($statement->execute([':name' => $name,':description' => $description,':tel' => $tel,':address' => $address, ':id' => $id])) {
                         
-                        header("location:../dashboard.php");
+                        header("location:Banks.php");
     
                     
                     }     

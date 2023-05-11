@@ -36,7 +36,7 @@ require_once("Hospital.php");
         $hospitals->addHospital();
 
                 echo "<script> alert('hospital added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:hospitals.php");
             
 
     }}

@@ -36,7 +36,7 @@ require_once("cityConfig.php");
         $cities->addCity();
 
         echo "<script> alert('city added successfully');</script>";
-        header("location:../dashboard.php");
+        header("location:cities.php");
     
             
         }

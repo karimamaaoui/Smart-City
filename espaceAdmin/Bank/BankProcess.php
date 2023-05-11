@@ -13,7 +13,7 @@ require_once("Bank.php");
         $bank->addbank();
 
                 echo "<script> alert('bank added successfully');</script>";
-                header("location:../dashboard.php");
+                header("location:Banks.php");
             
 
     

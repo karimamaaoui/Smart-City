@@ -17,7 +17,7 @@ require_once("parking.php");
         $parking->addParking();
 
                 echo "<script> alert('parking added successfully');</script>";
-                header("location:../parkings/parkings.php");
+                header("location:parkings.php");
             
     }
 ?>

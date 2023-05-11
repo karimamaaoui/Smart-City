@@ -66,7 +66,7 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Police Stations Lists</h2>
-                        <a href="policestation/createPoliceStation.php" class="btn">Create New police station</a>
+                        <a href="createPoliceStation.php" class="btn">Create New police station</a>
                         
                     </div>
 
@@ -126,10 +126,10 @@
                                 <td><img src="../profilepics/<?php  echo $val['pic'];?>" width="80" height="80"></td>
 
                                 <td>
-                                <a href="policestation/updatePoliceStation.php?id=<?php echo $val['id']?>&req=update">
+                                <a href="updatePoliceStation.php?id=<?php echo $val['id']?>&req=update">
                                 <input type="button" class="btn btn-warning" value="Update" >
                                  </a>
-                                <a href="policestation/deletePoliceStation.php?id=<?php echo $val['id']?>&req=delete">
+                                <a href="deletePoliceStation.php?id=<?php echo $val['id']?>&req=delete">
                                 <input value="Delete" type="button" class="btn btn-danger"></a>
                                 
                             </td>

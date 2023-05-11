@@ -38,7 +38,7 @@
         <div class="">
     
     </div>
-
+  
 
 
 <div class="main allContent-section py-4"  >
@@ -49,14 +49,18 @@
                 </div>
 
                 <div class="search">
+                <form action="search.php" method="GET">
+
                     <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
+                        <input type="text" placeholder="Search here" name="search">
+
                     </label>
+                    <input type="submit" value="Search">
+
+                    </form>
                 </div>
 
                 <div class="user">
-                    <img src="../img/customer01.jpg" alt="">
                 </div>
             </div>
 

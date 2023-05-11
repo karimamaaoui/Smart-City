@@ -5,7 +5,6 @@
     $listAllCity=new CityConfig();
     $data=$listAllCity->fetchAll();
 
-    require_once("../../connect.php");
 
     try{
         $pdo=new PDO("mysql:host=localhost;dbname=smartCity","root","");
