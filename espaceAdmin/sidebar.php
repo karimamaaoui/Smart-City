@@ -11,14 +11,6 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="#users" aria-current="page">
@@ -99,9 +91,18 @@
                 <li>
                     <a href="../espaceAdmin/Bank/Banks.php">
                         <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
+                            <ion-icon name="help-outline"></ion-icon>
                         </span>
                         <span class="title">Bank</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../espaceAdmin/Reservations/Reservations.php">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Reservation </span>
                     </a>
                 </li>
 
